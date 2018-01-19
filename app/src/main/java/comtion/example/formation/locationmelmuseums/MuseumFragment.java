@@ -71,7 +71,8 @@ public class MuseumFragment extends Fragment implements AdapterView.OnItemClickL
             data[i] = museumList.get(i).getName();
         }
 
-        //Définition d'un ArrayAdapter pour alimenter la ListView
+        //Définition d'un ArrayAdapter pour alimenter la ListView+-9*/
+
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(
                 this.getActivity(),
                 android.R.layout.simple_expandable_list_item_1,
@@ -143,15 +144,15 @@ public class MuseumFragment extends Fragment implements AdapterView.OnItemClickL
                 }
 
                 if(field.has("adresse")){
-                    museum.setName((String) field.get("adresse"));
+                    museum.setAddress((String) field.get("adresse"));
                 } else{
-                    museum.setName("inconnu");
+                    museum.setAddress("inconnu");
                 }
 
                 if(field.has("url")){
-                    museum.setName((String) field.get("url"));
+                    museum.setSite((String) field.get("url"));
                 } else{
-                    museum.setName("inconnu");
+                    museum.setSite("inconnu");
                 }
 
                 JSONArray geo = item.getJSONObject("geometry").getJSONArray("coordinates");
@@ -171,6 +172,7 @@ public class MuseumFragment extends Fragment implements AdapterView.OnItemClickL
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+
 
     }
 }
