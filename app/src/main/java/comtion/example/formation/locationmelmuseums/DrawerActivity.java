@@ -26,8 +26,7 @@ public class DrawerActivity extends AppCompatActivity
     private TextView museumAddressTextView;
     private TextView museumSiteTextView;
 
-    private NavigationView navigationView;
-    private DrawerLayout drawer;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,16 +36,16 @@ public class DrawerActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
 
-        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        //Référence au textView dans l'en-tête de navigation
+        /**Référence au textView dans l'en-tête de navigation
         View headerView = ((NavigationView)navigationView.findViewById(R.id.nav_view))
                 .getHeaderView(0);
         museumNameTextView = headerView.findViewById(R.id.headerMuseumName);
@@ -54,7 +53,7 @@ public class DrawerActivity extends AppCompatActivity
         museumSiteTextView = headerView.findViewById(R.id.headerMuseumSite);
 
         //Instanciation du musée
-        this.museum = new Museum();
+        this.museum = new Museum();*/
     }
 
     @Override
@@ -116,7 +115,7 @@ public class DrawerActivity extends AppCompatActivity
                 .commit();
     }
 
-    //Naviguer vers MuseumFragment
-    public void gotoMuseumFragment() {navigateToFragment(new MuseumFragment());}
+    /**Naviguer vers MuseumFragment
+    public void gotoMuseumFragment() {navigateToFragment(new MuseumFragment());}*/
 
 }

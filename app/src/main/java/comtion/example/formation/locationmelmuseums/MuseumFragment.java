@@ -53,7 +53,6 @@ public class MuseumFragment extends Fragment implements AdapterView.OnItemClickL
        View view = inflater.inflate(R.layout.fragment_museum, container, false);
 
        museumListView = view.findViewById(R.id.museumListView);
-
        museumListView.setOnItemClickListener(this);
 
        return view;
@@ -162,6 +161,7 @@ public class MuseumFragment extends Fragment implements AdapterView.OnItemClickL
                 //Ajout du musée à la liste
                 list.add(museum);
                 }
+
         } catch (JSONException e){
             e.printStackTrace();
         }
@@ -172,7 +172,18 @@ public class MuseumFragment extends Fragment implements AdapterView.OnItemClickL
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+        //Récupération de l'utilisateur sur lequel on vient de cliquer
+        Museum selectedMuseum = this.museumList.get(position);
 
+        //Création d'une intention pour l'affichage de la carte
+        Intent mapIntention = new Intent(this.getActivity(), MapsActivity.class);
+
+        //Passage des paramètres
+        mapIntention.putExtra("latitude", selectedMuseum.getLatitude());
+        mapIntention.putExtra("longitude", selectedMuseum.getLongitude());
+
+        //Affichage de l'activité
+        startActivity(mapIntention);
 
     }
 }
